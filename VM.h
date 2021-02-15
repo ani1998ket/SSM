@@ -1,6 +1,3 @@
-#ifndef __VM_H__
-#define __VM_H__
-
 #pragma once
 
 #include <deque>
@@ -20,13 +17,15 @@ using UDWORD    = uint64_t;
 class VM{
 
 public:
+    VM();
     void step();
+    void reset();
     
 private:
     std::deque< WORD > stack;
     UWORD IP;
-    bool is_halted = false;
-    WORD opcode = 0;
+    bool is_halted;
+    WORD opcode;
 
     void fetch();
     void decode();
@@ -61,4 +60,3 @@ private:
 
     friend class VMTester;
 };
-#endif // __VM_H__

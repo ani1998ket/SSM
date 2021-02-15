@@ -1,5 +1,26 @@
 #include "VM.h"
 
+VM::VM() 
+{
+    reset();
+}
+
+void VM::step() 
+{
+    if( is_halted ) return;
+    fetch();
+    decode();
+    execute();
+}
+
+void VM::reset() 
+{
+    IP = 0;
+    is_halted = false;
+    opcode = 0;
+    stack.clear();
+}
+
 void VM::fetch() 
 {
     
@@ -12,7 +33,7 @@ void VM::decode()
 
 void VM::execute() 
 {
-    
+
 }
 
 void VM::NOP() 
@@ -137,4 +158,3 @@ void VM::STORE(int index)
 {
     
 }
-
