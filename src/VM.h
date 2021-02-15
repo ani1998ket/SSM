@@ -1,18 +1,7 @@
 #pragma once
 
 #include <deque>
-#include <cstdint>
-#include "VMTester.h"
-
-using BYTE      = int8_t;
-using DBYTE     = int16_t;
-using WORD      = int32_t;
-using DWORD     = int64_t;
-
-using UBYTE     = uint8_t;
-using UDBYTE    = uint16_t;
-using UWORD     = uint32_t;
-using UDWORD    = uint64_t;
+#include "utils.h"
 
 class VM{
 
@@ -20,8 +9,10 @@ public:
     VM();
     void step();
     void reset();
+    void print_stack();
     
 private:
+public:
     std::deque< WORD > stack;
     UWORD IP;
     bool is_halted;
@@ -47,6 +38,8 @@ private:
 
     void GT();
     void GE();
+    void LT();
+    void LE();
     void EQ();
 
     void JMP( UWORD address );
@@ -58,5 +51,4 @@ private:
     void LOAD ( int index );
     void STORE( int index );
 
-    friend class VMTester;
 };

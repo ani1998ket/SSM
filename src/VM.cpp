@@ -90,21 +90,21 @@ void VM::AND()
 {
     WORD v2 = POP();
     WORD v1 = POP();
-    PUSH( v1 & v2 ); 
+    PUSH( v1 && v2 ); 
 }
 
 void VM::OR() 
 {
     WORD v2 = POP();
     WORD v1 = POP();
-    PUSH( v1 | v2 ); 
+    PUSH( v1 || v2 ); 
 }
 
 void VM::XOR() 
 {
     WORD v2 = POP();
     WORD v1 = POP();
-    PUSH( v1 ^ v2 ); 
+    PUSH( bool(v1) != bool(v2) ); 
 }
 
 void VM::NOT() 
@@ -125,6 +125,20 @@ void VM::GE()
     WORD v2 = POP();
     WORD v1 = POP();
     PUSH( v1 >= v2 ); 
+}
+
+void VM::LT()
+{
+    WORD v2 = POP();
+    WORD v1 = POP();
+    PUSH( v1 < v2 );
+}
+
+void VM::LE() 
+{
+    WORD v2 = POP();
+    WORD v1 = POP();
+    PUSH( v1 <= v2 );
 }
 
 void VM::EQ() 
@@ -157,4 +171,14 @@ void VM::LOAD(int index)
 void VM::STORE(int index) 
 {
     
+}
+
+#include <iostream>
+
+void VM::print_stack(){
+    std::cout << "Stack : ";
+    for( auto e : stack ){
+        std::cout << e << ", ";
+    } 
+    std::cout << std::endl;
 }
