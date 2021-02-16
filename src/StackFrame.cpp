@@ -12,6 +12,6 @@ WORD StackFrame::get_variable( UWORD index ){
     return variables[index];
 }
 
-WORD StackFrame::set_variable( UWORD index, WORD value ){
+void StackFrame::set_variable( UWORD index, WORD value ){
     variables[index] = value;
 }
