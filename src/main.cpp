@@ -67,11 +67,38 @@ int main(){
         (WORD)OPCODES::PUSH, 10,
         (WORD)OPCODES::CALL, 5,
         (WORD)OPCODES::HALT,
-        //fcall()
+        //square()
         (WORD)OPCODES::STORE, 0,
         (WORD)OPCODES::LOAD, 0,
         (WORD)OPCODES::LOAD, 0,
         (WORD)OPCODES::MUL,
+        (WORD)OPCODES::RET,
+    });
+    vm.run();
+    vm.print_stack();
+
+    // add2(t) -> return t + 2
+    // square(t) -> return t*t
+    // x = 10; square( add2(x) );
+    vm.reset();
+    vm.load_program({
+        (WORD)OPCODES::PUSH, 10,
+        (WORD)OPCODES::CALL, 5,
+        (WORD)OPCODES::HALT,
+        //square()
+        (WORD)OPCODES::STORE, 0,
+        (WORD)OPCODES::LOAD, 0,
+        (WORD)OPCODES::CALL, 19,
+        (WORD)OPCODES::STORE, 1,
+        (WORD)OPCODES::LOAD, 1,
+        (WORD)OPCODES::LOAD, 1,
+        (WORD)OPCODES::MUL,
+        (WORD)OPCODES::RET,
+        //add2()
+        (WORD)OPCODES::STORE, 0,
+        (WORD)OPCODES::LOAD, 0,
+        (WORD)OPCODES::PUSH, 2,
+        (WORD)OPCODES::ADD,
         (WORD)OPCODES::RET,
     });
     vm.run();
