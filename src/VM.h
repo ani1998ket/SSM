@@ -6,7 +6,7 @@
 #include "StackFrame.h"
 
 enum class OPCODES{
-    NOP, HALT, PUSH, POP,
+    NOP = 0, HALT, PUSH, POP,
     NEG, ADD, SUB, MUL, DIV,
     AND, OR, XOR, NOT,
     GT, GE, LT, LE, EQ,
@@ -19,13 +19,13 @@ class VM{
 
 public:
     VM();
+    void run();
     void step();
     void reset();
     void load_program( std::vector<WORD> program );
     void print_stack();
     
 private:
-public:
     std::deque< WORD > stack;
     std::deque< StackFrame > frame_stack;
     UWORD IP;

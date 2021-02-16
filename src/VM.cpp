@@ -5,9 +5,15 @@ VM::VM()
     reset();
 }
 
+void VM::run()
+{
+    while( !is_halted ){
+        step();
+    }
+}
+
 void VM::step() 
 {
-    if( is_halted ) return;
     fetch();
     decode();
     execute();
@@ -214,6 +220,7 @@ void VM::JIF( UWORD address )
 void VM::CALL( UWORD address ) 
 {
     frame_stack.push_back( {IP} );
+    IP = address;
 }
 
 void VM::RET()
