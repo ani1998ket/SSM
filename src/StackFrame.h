@@ -1,12 +1,13 @@
 #include "utils.h"
-#include <vector>
+#include <map>
 
 class StackFrame{
 public:
     StackFrame( WORD return_address );
-    WORD get_variable( WORD index );
+    WORD get_variable( UWORD index );
+    WORD set_variable( UWORD index, WORD value);
     WORD get_return_address();
 private:
     WORD return_address = 0;
-    std::vector<WORD> variables;
+    std::map<UWORD, WORD> variables;
 };

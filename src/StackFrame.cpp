@@ -7,6 +7,11 @@ StackFrame::StackFrame( WORD return_address ){
 WORD StackFrame::get_return_address(){
     return return_address;
 };
-WORD StackFrame::get_variable( WORD index ){
+
+WORD StackFrame::get_variable( UWORD index ){
     return variables[index];
+}
+
+WORD StackFrame::set_variable( UWORD index, WORD value ){
+    variables[index] = value;
 }
