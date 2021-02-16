@@ -1,6 +1,6 @@
 #include "StackFrame.h"
 
-StackFrame::StackFrame( WORD return_address ){
+StackFrame::StackFrame( UWORD return_address ){
     this->return_address = return_address;
 }
 

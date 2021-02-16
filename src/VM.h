@@ -1,7 +1,19 @@
 #pragma once
 
 #include <deque>
+#include <vector>
 #include "utils.h"
+#include "StackFrame.h"
+
+enum class OPCODES{
+    NOP, HALT, PUSH, POP,
+    NEG, ADD, SUB, MUL, DIV,
+    AND, OR, XOR, NOT,
+    GT, GE, LT, LE, EQ,
+    JMP, JIF,
+    CALL, RET,
+    LOAD, STORE
+};
 
 class VM{
 
@@ -9,14 +21,17 @@ public:
     VM();
     void step();
     void reset();
+    void load_program( std::vector<WORD> program );
     void print_stack();
     
 private:
 public:
     std::deque< WORD > stack;
+    std::deque< StackFrame > frame_stack;
     UWORD IP;
     bool is_halted;
-    WORD opcode;
+    WORD opcode, arg;
+    std::vector<WORD> program;
 
     void fetch();
     void decode();
