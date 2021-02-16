@@ -27,6 +27,7 @@ public:
     void PUSH( WORD value );
     WORD POP();
 
+    void NEG();
     void ADD();
     void SUB();
     void MUL();

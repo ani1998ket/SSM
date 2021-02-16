@@ -58,6 +58,12 @@ WORD VM::POP()
     return value;
 }
 
+void VM::NEG()
+{
+    WORD v = POP();
+    PUSH( -v ); 
+}
+
 void VM::ADD() 
 {
     WORD v2 = POP();
