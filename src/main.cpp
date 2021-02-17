@@ -68,7 +68,7 @@ int main(int argc, char** argv ){
 
     VM vm;
     vm.reset();
+    vm.debug_mode = true;
     vm.load_program( program );
     vm.run();
-    vm.print_stack();
 }

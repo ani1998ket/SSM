@@ -17,6 +17,7 @@ void VM::step()
     fetch();
     decode();
     execute();
+    if( debug_mode ) print_stack();
 }
 
 void VM::reset() 

@@ -24,6 +24,8 @@ public:
     void reset();
     void load_program( std::vector<WORD> program );
     void print_stack();
+
+    bool debug_mode = false;
     
 private:
     std::deque< WORD > stack;
