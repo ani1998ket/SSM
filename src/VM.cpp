@@ -31,7 +31,7 @@ void VM::reset()
     frame_stack.push_back({0});
 }
 
-void VM::load_program( std::vector<WORD> program ){
+void VM::load_program( std::vector<i32> program ){
     this-> program = program;
 }
 
@@ -100,125 +100,125 @@ void VM::HALT()
     is_halted = true;
 }
 
-void VM::PUSH(WORD value) 
+void VM::PUSH(i32 value) 
 {
     stack.push_back( value );   
 }
 
-WORD VM::POP() 
+i32 VM::POP() 
 {
-    WORD value = stack.back();
+    i32 value = stack.back();
     stack.pop_back();
     return value;
 }
 
 void VM::NEG()
 {
-    WORD v = POP();
+    i32 v = POP();
     PUSH( -v ); 
 }
 
 void VM::ADD() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 + v2 );   
 }
 
 void VM::SUB() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 - v2 );    
 }
 
 void VM::MUL() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 * v2 ); 
 }
 
 void VM::DIV() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 / v2 ); 
 }
 
 void VM::AND() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 && v2 ); 
 }
 
 void VM::OR() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 || v2 ); 
 }
 
 void VM::XOR() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( bool(v1) != bool(v2) ); 
 }
 
 void VM::NOT() 
 {
-    WORD v = POP();
+    i32 v = POP();
     PUSH( !v ); 
 }
 
 void VM::GT() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 > v2 ); 
 }
 
 void VM::GE() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 >= v2 ); 
 }
 
 void VM::LT()
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 < v2 );
 }
 
 void VM::LE() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 <= v2 );
 }
 
 void VM::EQ() 
 {
-    WORD v2 = POP();
-    WORD v1 = POP();
+    i32 v2 = POP();
+    i32 v1 = POP();
     PUSH( v1 == v2 ); 
 }
 
-void VM::JMP( UWORD address ) 
+void VM::JMP( u32 address ) 
 {
     IP = address;
 }
 
-void VM::JIF( UWORD address ) 
+void VM::JIF( u32 address ) 
 {
     if( POP() ) JMP( address );
 }
 
-void VM::CALL( UWORD address ) 
+void VM::CALL( u32 address ) 
 {
     frame_stack.push_back( {IP} );
     IP = address;

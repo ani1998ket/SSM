@@ -1,13 +1,17 @@
+#pragma once
+
 #include "utils.h"
 #include <map>
 
 class StackFrame{
 public:
-    StackFrame( UWORD return_address );
-    WORD get_variable( UWORD index );
-    void set_variable( UWORD index, WORD value);
-    WORD get_return_address();
+    StackFrame( u32 return_address );
+
+    i32 get_return_address();
+    i32 get_variable( u32 index );
+    void set_variable( u32 index, i32 value);
+
 private:
-    WORD return_address = 0;
-    std::map<UWORD, WORD> variables;
+    u32 return_address = 0;
+    std::map<u32, i32> variables;
 };

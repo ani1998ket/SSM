@@ -22,18 +22,18 @@ public:
     void run();
     void step();
     void reset();
-    void load_program( std::vector<WORD> program );
+    void load_program( std::vector<i32> program );
     void print_stack();
 
     bool debug_mode = false;
     
 private:
-    std::deque< WORD > stack;
+    std::deque< i32 > stack;
     std::deque< StackFrame > frame_stack;
-    UWORD IP;
+    u32 IP;
+    i32 opcode, arg;
     bool is_halted;
-    WORD opcode, arg;
-    std::vector<WORD> program;
+    std::vector<i32> program;
 
     void fetch();
     void decode();
@@ -41,8 +41,8 @@ private:
 
     void NOP();
     void HALT();
-    void PUSH( WORD value );
-    WORD POP();
+    void PUSH( i32 value );
+    i32 POP();
 
     void NEG();
     void ADD();
@@ -60,10 +60,10 @@ private:
     void LE();
     void EQ();
 
-    void JMP( UWORD address );
-    void JIF( UWORD address );
+    void JMP( u32 address );
+    void JIF( u32 address );
 
-    void CALL( UWORD address );
+    void CALL( u32 address );
     void RET();
 
     void LOAD ( int index );

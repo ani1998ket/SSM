@@ -1,17 +1,17 @@
 #include "StackFrame.h"
 
-StackFrame::StackFrame( UWORD return_address ){
+StackFrame::StackFrame( u32 return_address ){
     this->return_address = return_address;
 }
 
-WORD StackFrame::get_return_address(){
+i32 StackFrame::get_return_address(){
     return return_address;
 };
 
-WORD StackFrame::get_variable( UWORD index ){
+i32 StackFrame::get_variable( u32 index ){
     return variables[index];
 }
 
-void StackFrame::set_variable( UWORD index, WORD value ){
+void StackFrame::set_variable( u32 index, i32 value ){
     variables[index] = value;
 }
