@@ -21,11 +21,11 @@
 
 * Assemble your code using sasm binary. This will generate the corresponding bytecode (out.sbc)
 
-    $ assembler/bin/sasm <sasm-file>
+        $ assembler/bin/sasm <sasm-file>
 
 * Run the bytecode using ssm binary.
 
-    $ vm/bin/ssm out.sbc
+        $ vm/bin/ssm out.sbc
 
 
 ### Running the examples
