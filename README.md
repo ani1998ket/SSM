@@ -1,13 +1,29 @@
 ## A Simple Stack based Virtual Machine written in C++
 
+### Assembler ( Converts sasm code to SSM bytecode )
+
 > Compile
 
+    $ cd assembler
     $ make
 
-> Run
+### VM ( Runs the bytecode )
 
-    $ bin/ssm <bytecode_file>
+> Compile
 
-> For running the example provided
+    $ cd vm
+    $ make
 
-    $ bin/ssm bytecodes/add.sbc
+
+### Steps
+
+> Write your code in sasm syntax and save it in a file named `<filename>`.sasm
+
+> Assemble your code using sasm binary. This will generate the corresponding bytecode (out.sbc)
+
+    $ assembler/bin/sasm <sasm-file>
+
+> Run the bytecode using ssm binary.
+
+    $ vm/bin/ssm out.sbc
+
