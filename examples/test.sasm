@@ -1,0 +1,33 @@
+// the main function
+main:
+    PUSH 4
+    CALL factorial
+    HALT
+
+factorial:
+    STORE 0 // x = 10
+
+    PUSH 1
+    STORE 1 // result = 1
+
+body:
+    LOAD 0
+    PUSH 1
+    LE
+    JIF exit  // if( x <= 1 ) goto exit
+
+    LOAD 1
+    LOAD 0 
+    MUL         
+    STORE 1 // result = result * x
+    
+    LOAD 0
+    PUSH 1
+    SUB
+    STORE 0 // x = x - 1
+
+    JMP body
+
+exit:
+    LOAD 1
+    RET
