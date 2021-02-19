@@ -1,0 +1,7 @@
+main:
+    PUSH 10
+    PUSH 20
+    ADD
+    PUSH 30
+    ADD
+    HALT
