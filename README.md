@@ -4,15 +4,13 @@
 
 > Compile
 
-    $ cd assembler
-    $ make
+    $ make --directory assembler/
 
 ### VM ( Runs the bytecode )
 
 > Compile
 
-    $ cd vm
-    $ make
+    $ make --directory vm/
 
 
 ### Steps
