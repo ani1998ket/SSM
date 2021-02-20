@@ -1,9 +1,11 @@
-### sasm reference manual
+# sasm reference manual
 
 * [Opcodes](#Opcodes)
 * [Labels](#Labels)
 * [Comments](#Comments)
 * [Examples](#Examples)
+
+-----
 
 ## Opcodes
 Opcode|Mneumonic|Arguments
@@ -33,91 +35,103 @@ Opcode|Mneumonic|Arguments
 22|[LOAD](#LOAD)|1
 23|[STORE](#STORE)|1
 
-## NOP
+### NOP
 	NOP
 No operation
-## HALT
+### HALT
 	HALT
 Stops the program execution
-## PUSH
+### PUSH
 	PUSH <signed int>
 Pushes a value to the top of the stack
-## POP
+### POP
 	POP
 Removes the top element from stack
-## NEG
+### NEG
 	NEG
 Replaces the top element with its sign inverted.
-## ADD
+### ADD
 	ADD
 Removes the top two elements and pushes their sum at the top.
-## SUB
+### SUB
 	SUB
 Removes the top two elements and pushes their `difference` at the top.\
 The top element is subtracted from the second top element.
-## MUL
+### MUL
 	MUL
 Removes the top two elements and pushes their `product` at the top.
-## DIV
+### DIV
 	DIV
 Removes the top two elements and pushes their `integer quotient` at the top.\
 The top element is divided from the second top element.
-## AND
+### AND
 	AND
 Removes the top two elements and pushes their `bitwise and` at the top.
-## OR
+### OR
 	OR
 Removes the top two elements and pushes their `bitwise or` at the top.
-## XOR
+### XOR
 	XOR
 Removes the top two elements and pushes their `bitwise xor` at the top.
-## NOT
+### NOT
 	NOT
 Replaces the top element with its `1's complement`.
-## GT
+### GT
 	GT
 Removes the top two elements.\
 Pushes 1 if secondTop `>` top element.\
 Pushes 0 if otherwise.	
-## GE
+### GE
 	GE
 Removes the top two elements.\
 Pushes 1 if secondTop `>=` top element.\
 Pushes 0 if otherwise.	
-## LT
+### LT
 	LT
 Removes the top two elements.\
 Pushes 1 if secondTop `<` top element.\
 Pushes 0 if otherwise.	
-## LE
+### LE
 	LE
 Removes the top two elements.\
 Pushes 1 if secondTop `<=` top element.\
 Pushes 0 if otherwise.
-## EQ
+### EQ
 	EQ
 Removes the top two elements.\
 Pushes 1 if secondTop `equals` top element.\
 Pushes 0 if otherwise.
 
-## JMP
+### JMP
 	JMP <label>
 Unconditionally jumps to the address specified by label.
-## JIF
+### JIF
 	JIF <label>
 Removes the top element.\
 Jumps to the address specified by label only if the popped element didn't equal to 0.
-## CALL
+### CALL
 	CALL <label>
  Saves the next program address and jumps to the address specified by label.\
  Also creates a new storage for local variables.
-## RET
+### RET
 	RET
 Jumps to the address saved by the call instruction.\
 Also removes the variable store and local variables are deleted.
-## LOAD
+### LOAD
 	LOAD <index>
 Gets a value from the local variable store specified by the index and pushes it onto the stack.
-## STORE
+### STORE
 	STORE <index>
-Pops the top element and saves it into the local variable store specified the the index.
+Pops the top element and saves it into the local variable store specified by the index.
+
+----
+
+## Labels
+	label_name:
+Marks the beginning of a  code segment.\
+Can be used by CALL, JMP and JIF instruction for jumps.
+## Comments
+	// Comment goes here
+Single line comments begin with `//` till the line end.\
+Everything in between is ignored by the assembler.
+## Examples
