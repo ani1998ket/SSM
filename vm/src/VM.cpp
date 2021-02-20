@@ -150,27 +150,27 @@ void VM::AND()
 {
     i32 v2 = POP();
     i32 v1 = POP();
-    PUSH( v1 && v2 ); 
+    PUSH( v1 & v2 ); 
 }
 
 void VM::OR() 
 {
     i32 v2 = POP();
     i32 v1 = POP();
-    PUSH( v1 || v2 ); 
+    PUSH( v1 | v2 ); 
 }
 
 void VM::XOR() 
 {
     i32 v2 = POP();
     i32 v1 = POP();
-    PUSH( bool(v1) != bool(v2) ); 
+    PUSH( v1 ^ v2 ); 
 }
 
 void VM::NOT() 
 {
     i32 v = POP();
-    PUSH( !v ); 
+    PUSH( ~v ); 
 }
 
 void VM::GT() 
