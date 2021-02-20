@@ -53,14 +53,14 @@ Replaces the top element with its sign inverted.
 Removes the top two elements and pushes their sum at the top.
 ## SUB
 	SUB
-Removes the top two elements and pushes their `difference` at the top.
+Removes the top two elements and pushes their `difference` at the top.\
 The top element is subtracted from the second top element.
 ## MUL
 	MUL
 Removes the top two elements and pushes their `product` at the top.
 ## DIV
 	DIV
-Removes the top two elements and pushes their `integer quotient` at the top.
+Removes the top two elements and pushes their `integer quotient` at the top.\
 The top element is divided from the second top element.
 ## AND
 	AND
@@ -76,43 +76,44 @@ Removes the top two elements and pushes their `bitwise xor` at the top.
 Replaces the top element with its `1's complement`.
 ## GT
 	GT
-Removes the top two elements.
-Pushes 1 if secondTop `>` top element.
-Pushes 0 if otherwise	
+Removes the top two elements.\
+Pushes 1 if secondTop `>` top element.\
+Pushes 0 if otherwise.	
 ## GE
 	GE
-Removes the top two elements.
-Pushes 1 if secondTop `>=` top element.
-Pushes 0 if otherwise	
+Removes the top two elements.\
+Pushes 1 if secondTop `>=` top element.\
+Pushes 0 if otherwise.	
 ## LT
 	LT
-Removes the top two elements.
-Pushes 1 if secondTop `<` top element.
-Pushes 0 if otherwise	
+Removes the top two elements.\
+Pushes 1 if secondTop `<` top element.\
+Pushes 0 if otherwise.	
 ## LE
 	LE
-Removes the top two elements.
-Pushes 1 if secondTop `<=` top element.
-Pushes 0 if otherwise	
+Removes the top two elements.\
+Pushes 1 if secondTop `<=` top element.\
+Pushes 0 if otherwise.
 ## EQ
 	EQ
-Removes the top two elements.
-Pushes 1 if secondTop `equals` top element.
-Pushes 0 if otherwise	
+Removes the top two elements.\
+Pushes 1 if secondTop `equals` top element.\
+Pushes 0 if otherwise.
+
 ## JMP
 	JMP <label>
 Unconditionally jumps to the address specified by label.
 ## JIF
 	JIF <label>
-Removes the top element.
+Removes the top element.\
 Jumps to the address specified by label only if the popped element didn't equal to 0.
 ## CALL
 	CALL <label>
- Saves the next program address and jumps to the address specified by label.
+ Saves the next program address and jumps to the address specified by label.\
  Also creates a new storage for local variables.
 ## RET
 	RET
-Jumps to the address saved by the call instruction.
+Jumps to the address saved by the call instruction.\
 Also removes the variable store and local variables are deleted.
 ## LOAD
 	LOAD <index>
