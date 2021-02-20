@@ -6,6 +6,8 @@
 
     $ make --directory assembler/
 
+Sasm reference manual can be found [here](./sasm_reference/README.md)
+
 ### VM ( Runs the bytecode )
 
 > Compile
