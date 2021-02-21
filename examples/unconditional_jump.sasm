@@ -1,0 +1,8 @@
+	main:
+		PUSH 1		// Stack : [1]
+		JMP label	
+		PUSH 2		// this won't execute
+		
+	label:
+		PUSH 3		// Stack : [1 3]
+		HALT

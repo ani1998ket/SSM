@@ -1,20 +1,15 @@
-main:
-    PUSH 10
-    PUSH 20
-    CALL hypotenuse(int,int)
-    HALT
+	main:
+		PUSH 3
+		CALL cube	// cube(3)
+		HALT
+		
+	cube:
+		STORE 0		// x = 3
 
-hypotenuse(int,int):
-    STORE 2
-    STORE 1
-
-    LOAD 2
-    LOAD 2
-    MUL
-
-    LOAD 1
-    LOAD 1
-    MUL
-
-    ADD
-    RET
+		LOAD 0
+		LOAD 0
+		LOAD 0		// Stack : [ 3 3 3 ]
+		MUL			// Stack : [3 9]
+		MUL			// Stack : [27]
+		
+		RET

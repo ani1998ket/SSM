@@ -1,0 +1,20 @@
+main:
+    PUSH 10
+    PUSH 20
+    CALL hypotenuse(int,int)
+    HALT
+
+hypotenuse(int,int):
+    STORE 2
+    STORE 1
+
+    LOAD 2
+    LOAD 2
+    MUL
+
+    LOAD 1
+    LOAD 1
+    MUL
+
+    ADD
+    RET

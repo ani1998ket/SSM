@@ -1,0 +1,13 @@
+	main:
+		PUSH 1
+		PUSH 2
+		
+		LT				// Stack : [ 1 ] ( since 1 < 2  is true )
+		JIF is_less		// Condition is true. Jump will occur
+		
+		PUSH 0			// This won't execute
+		HALT
+	
+	is_less:
+		PUSH 1			// This will execute
+		HALT

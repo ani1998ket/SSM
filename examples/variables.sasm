@@ -1,0 +1,19 @@
+	main:
+		PUSH 10
+		STORE 0		// x = 10
+	
+		PUSH 20
+		STORE 1		// y = 20
+		
+		LOAD 0		// Stack : [ 10 ]
+		LOAD 0		// Stack : [ 10 10 ]
+		MUL			// Stack : [ 100 ]
+
+		LOAD 1		// Stack : [ 100 20]
+		LOAD 1		// Stack : [ 100 20 20 ]
+		MUL			// Stack : [ 100 400]
+		
+		ADD			// Stack : [ 500 ]
+		STORE 2		//  z = 500
+		
+		HALT		// Stack : []
